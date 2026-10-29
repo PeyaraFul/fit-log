@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { Suspense } from "react";
 import { FaClock, FaRegStar } from "react-icons/fa";
 import { PiFireSimple } from "react-icons/pi";
 
@@ -16,6 +17,7 @@ export default async function Home() {
         <p className="text-gray-500">
           Twelve lifts covering every major muscle group.
         </p>
+        <Suspense fallback={<div>Loading...</div>}>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4  max-w-[1440px] mx-auto mt-10">
           {data.map((item) => (
             <div
@@ -60,6 +62,7 @@ export default async function Home() {
             </div>
           ))}
         </div>
+        </Suspense>
       </div>
     </>
   );
